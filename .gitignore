@@ -1,12 +1,5 @@
-# Node.js modules
 node_modules/
-
-# Logs
+src/config/*.json
+.env
 *.log
-
-# OS generated files
 .DS_Store
-Thumbs.db
-
-# npm package-lock
-package-lock.json

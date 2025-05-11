@@ -1,15 +1,22 @@
 {
   "name": "nori-translator",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "nori-translator",
+    "nori",
+    "translator"
+  ],
+  "author": "mayavi",
+  "license": "GNU",
+  "description": "Customizable desktop translator built with Electron",
   "devDependencies": {
-    "electron": "^36.2.0"
+    "electron": "^29.0.0"
+  },
+  "dependencies": {
+    "@vitalets/google-translate-api": "^9.2.1"
   }
 }
