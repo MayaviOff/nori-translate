@@ -1,6 +1,7 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const translate = require("@vitalets/google-translate-api")
+const translate = require("@vitalets/google-translate-api");
+
 
 app.commandLine.appendSwitch('disable-gpu');
 app.commandLine.appendSwitch('disable-gpu-compositing');
@@ -22,25 +23,19 @@ function createWindow() {
 }
 
 
-app.whenReady().then(() => {
-  createWindow();
-
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
-});
+app.whenReady().then(createWindow());
 
 
-ipcMain.handle('translate', async (_, { text, from, to }) => {
-  try {
-    const res = await translate(text, { from, to });
-    return res.text;
-  } catch (err) {
-    return '[Ошибка перевода]';
-  }
+ipcMain.handle('translate', async(_, {text, from, to}) => {
+    try {
+        const res = await translate(text, {from, to});
+        return res.text;
+    } catch (err) {
+        return '[mistake of translation]'
+    }
 })
 
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
+  app.quit();
 });

@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Nori Translator</title>
-  <link rel="stylesheet" href="styles/default.css">
-</head>
-<body>
-  <h1>Nori Translator</h1>
-  <script src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Nori translate</title>
+    <link rel="stylesheet" href="styles/default.css">
+  </head>
+  <body>
+    <div id="all-element">
+      <div id="header">
+        <h1>Nori Translate</h1>
+      </div>
+
+      <div id="wrapper">
+        <div class="lang-labels">
+          <h3 class="lan" id="from">en</h3>
+          <h3 class="lan" id="to">ru</h3>
+        </div>
+
+        <div id="row">
+          <textarea id="input" placeholder="Enter text"></textarea>
+          <button id="swap"><span class="icon">🔁</span></button>
+          <textarea id="output" placeholder="Translate" readonly></textarea>
+        </div>
+
+        <div class="translate-div">
+          <button id="translate">Translate</button>
+        </div>
+      </div>
+    </div>
+
+  </body>
 </html>
